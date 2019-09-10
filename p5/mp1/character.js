@@ -9,7 +9,7 @@ if(mouseIsPressed){
 } else {
    background(0, 255, 238);
  }
-   noStroke();
+noStroke();
 
    fill( 201, 110, 4)
    rect(0, 270, 1500, 800)
