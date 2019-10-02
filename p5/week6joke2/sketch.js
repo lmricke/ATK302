@@ -11,7 +11,7 @@ function draw() {
   switch(myState){
     case 0:
     background("white")
-    text("peaches are suede", 100, 200);
+    text("You can't run through a camp site...", 100, 200);
     myTimer++ ;
     if (myTimer >=200) {
       myTimer = 0 ;
@@ -26,7 +26,7 @@ function draw() {
       myTimer = 0 ;
       myState = 2;
     }
-    text("apples", 100, 200);
+    text("You can only ran because it's past tents.", 100, 200);
     break;
 
     case 2:
@@ -36,7 +36,7 @@ function draw() {
       myTimer = 0 ;
       myState = 0;
     }
-    text("-stole from someboty's twitter", 100, 200);
+    text(":(", 100, 200);
     break;
   }
 }
