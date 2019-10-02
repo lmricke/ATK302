@@ -10,12 +10,12 @@ function draw (){
   switch(myState){
     case 0:
     background(100);
-    text("why did the ant fall off the toilet bowl?", 100, 100) ;
+    text("You never see elephants hiding in trees...", 100, 100) ;
     break;
 
     case 1:
     background(255, 0, 0);
-    text('because he got pissed off', 100, 100);
+    text('I guess they must be really good at it.', 100, 100);
     break;
   }
 }
