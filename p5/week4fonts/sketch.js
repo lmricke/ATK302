@@ -1,4 +1,5 @@
 var myFont;
+var x=0;
 
 
 function preload() {
@@ -6,11 +7,20 @@ function preload() {
 }
 function setup(){
     createCanvas(1000,800);
+    myFont= leadFont('assets/bebas.otf')
   }
 
   function draw() {
-  fill('#ED225D');
-  textFont (myFont);
-  textSize(36);
-  text('HELLO WORLD', 10, 50);
-  }
+    background(100);
+    textFont (myFont);
+
+  fill('red');
+  text("HELLO WORLD", x, 150);
+  x++ ;
+  if (x>width) {
+    x=0 ;
+
+
+textSize(36);
+text("from rose", 20, 250);
+}
