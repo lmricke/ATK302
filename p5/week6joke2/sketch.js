@@ -10,7 +10,7 @@ function draw() {
 
   switch(myState){
     case 0:
-    background("white")
+    background("tiel")
     text("You can't run through a camp site...", 100, 200);
     myTimer++ ;
     if (myTimer >=200) {
