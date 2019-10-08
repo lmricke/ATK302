@@ -6,7 +6,7 @@ function setup() {
    fill(204);
    triangle(18, 18, 18, 360, 81, 360);
 
-   fill ( 255, 83, 13 ) ; 
+   fill ( 255, 83, 13 ) ;
    rect(0, 0, 100, 200);
 
    fill(204);
