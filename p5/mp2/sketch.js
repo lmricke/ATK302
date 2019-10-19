@@ -36,19 +36,23 @@ function draw (){
     break;
 
     case 1:
-    background(29, 219, 240);
+    background(173, 151, 252);
 
-    fill(45, 227, 94);
-    rect(0, 720, 1920, 200);
 
-    fill(255);
-    arc(479, 300, 280, 280, PI, TWO_PI);
 
-    fill('brown')
-    rect(100, 0, 20, 720)
+    fill(80, 120, 52);
+    rect(0, 670, 1920, 890);
+
+    fill(31, 97, 42);
+    triangle(890,670, 200, 890, 950, 890);
+
+    fill(45, 156, 224);
+    triangle(890,670, 400, 890, 900, 890);
+
+    fill(235, 125, 7);
+    arc(900, 670, 480, 480, PI, TWO_PI);
 
     fill('yellow')
-    ellipse(400, 300, 150, 150);
     text('mmmmm yes', 100, 100);
 
     break;
