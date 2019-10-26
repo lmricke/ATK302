@@ -119,9 +119,12 @@ function keyPressed() {
 
 function splashScreen() {
     background(255, 0, 0);
-    text('Press ENTER to Play', 180, 400);
-    fill(0);
     textSize(45);
+    text('Press ENTER to Play', 180, 400);
+    textSize(20);
+    text('Eat 25 bugs in 10 seconds to win!', 250, 430);
+    fill(0);
+
 
 }
 function gameState() {
