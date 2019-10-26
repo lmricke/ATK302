@@ -33,7 +33,7 @@ function draw() {
     fill("yellow")
     ellipse(width / 2, height / 2, 100,100);
     myTimer++
-    if (myTimer >=200) {
+    if (myTimer >=20000) {
       myTimer = 0 ;
       myState = 2;
     }

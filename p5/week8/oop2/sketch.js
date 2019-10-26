@@ -3,23 +3,32 @@ var frogPos;
 
 function setup() {
   // put setup code here
+
   createCanvas(800, 800);
   for (var i = 0; i < 40; i++) {
     cars.push(new Car());
-
   }
+  frogPos = createVector(width/2, height-80) ;
+  rectMode(CENTER) ;
+  ellipseMode(CENTER) ;
+
 
 }
-frogPos = createVector(width / 2, height -80);
 
 function draw() {
   background(100);
-
   for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
+    if (cars[i].pos.dist(frogPos) < 50) {
+      cars.splice(i, 1) ;
+    }
   }
-  checkForKeys();
+
+  // draw the frog
+  fill('green') ;
+  ellipse(frogPos.x, frogPos.y, 60, 60) ;
+  checkForKeys() ;
 
 }
 
