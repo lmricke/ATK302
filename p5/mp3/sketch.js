@@ -3,7 +3,8 @@ var frogPos;
 var myState = 0;
 var myTimer = 10000;
 var myBugColor = 1;
-var carseaten = 0 ;
+var bugsEaten = 0;
+var startMillis = 0;
 
 function setup() {
 
@@ -22,36 +23,28 @@ function setup() {
     ellipseMode(CENTER);
 }
 
-
-frogPos = createVector(width / 2, height - 80);
-
-
 function draw() {
     background(100);
 
-
     switch (myState) {
         case 0:  // splash screen
-            splashScreen()
+            splashScreen();
             break;
 
         case 1: // the game state
-            gameState()
+            gameState();
             break;
 
         case 2: // the win state
-            winState()
+            winState();
             break;
 
         case 3: // the lose state
-            loseState()
+            loseState();
             break;
 
     }
-
 }
-
-
 
 // car class!!
 function Car() {
@@ -79,7 +72,7 @@ function Car() {
             image(Bug3, this.pos.x, this.pos.y, 100, 50);
         }
 
-        myBugColor = myBugColor + 1;
+        myBugColor++;
         if (myBugColor > 3) {
             myBugColor = 1;
         }
@@ -110,9 +103,9 @@ function checkForKeys() {
 
 function keyPressed() {
     if (keyCode === ENTER) {
+        startMillis = millis();
         myState = 1;
     } else if (keyCode === ESCAPE) {
-        myTimer = 10000;
         myState = 0;
     }
 }
@@ -124,9 +117,8 @@ function splashScreen() {
     textSize(20);
     text('Eat 25 bugs in 10 seconds to win!', 250, 430);
     fill(0);
-
-
 }
+
 function gameState() {
 
     for (var i = 0; i < cars.length; i++) {
@@ -134,7 +126,7 @@ function gameState() {
         cars[i].drive();
         if (cars[i].pos.dist(frogPos) < 70) {
             cars.splice(i, 1);
-            carseaten = carseaten + 1 ;
+            bugsEaten++;
         }
     }
 
@@ -143,14 +135,18 @@ function gameState() {
     image(SpaceShip, frogPos.x, frogPos.y);
     checkForKeys();
 
-    if (millis() > myTimer) {
-        myTimer = 0;
-        myState = 3;
+    if (millis() >= startMillis + myTimer)
+    {
+      myState = 3;
     }
-    if (carseaten >= 25)
+
+    if (bugsEaten >= 25)
     {
       myState = 2 ;
     }
+    fill(0);
+    textSize(20);
+    text('Bugs eaten: ' + bugsEaten, 600, 780)
 
 } //endgamestate
 
@@ -159,18 +155,25 @@ function winState() {
   fill(0);
   textSize(50);
   text('YOU WIN!', 250, 400);
-
-  if (keyCode === ESCAPE) {
-      myState = 0;
-    }
+  resetNewGame();
 }
+
 function loseState() {
     background(0);
     fill(0, 255, 0);
     textSize(50);
     text('YOU LOSE', 250, 400);
+    resetNewGame();
+}
 
-    if (keyCode === ESCAPE) {
-        myState = 0;
+function resetNewGame () {
+    //Reset the cars and the spaceship to starting positions
+
+    bugsEaten = 0;
+   cars.length = 0;
+    for (i = 0; i < 40; i++) {
+        cars.push(new Car());
     }
+
+    frogPos = createVector(width / 2, height - 80);
 }
