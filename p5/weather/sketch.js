@@ -1,4 +1,4 @@
-var weather ;
+var weather = 0 ;
 var temp = 0 ;
 var weatherID = 0 ; // returned in the JSON weather element
 var myState = 0 ;
