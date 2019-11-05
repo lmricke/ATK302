@@ -38,6 +38,7 @@ function draw() {
 
     case 1:
     background(200) ;
+    fill('black');
     text("Weather in Geneseo, IL", 20, 20) ;
 // parse the weather object and put some text for some at least 3 different weather data!
     text("the temperature is " + weather.main.temp, 20, 40) ;
@@ -46,14 +47,14 @@ function draw() {
 
     fill('white') ;
     noStroke() ;
-    ellipse( 100, 250, 200, 100) ;
-    x = x + ws ;
+    ellipse( x, 250, 200, 100) ;
+    x = x + ws/3 ;
     if ( x > width) x = 0 ;
 
     fill('red') ;
     var tmp = 0 ;
-    tmp = map(temperature, -10, 90, height-10) ;
-    rect(width-40, height-10, 30, -temperature) ;
+    tmp = map(temperature, -10, 90, 2, height-10) ;
+    rect(width-40, height-10, 30, -tmp) ;
 
     break;
 
