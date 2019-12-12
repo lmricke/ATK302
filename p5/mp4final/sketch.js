@@ -5,11 +5,11 @@ var myTimer = 10000;
 var myBugColor = 1;
 var bugsEaten = 0;
 var startMillis = 0;
-var y = 100;
-let f;
-function preload(){
-  f = loadFont('assets/Hollows.ttf');
-}
+//var y = 100;
+//let f;
+//function preload(){
+//  f = loadFont('assets/Hollows.ttf');
+//}
 
 
 function setup() {
