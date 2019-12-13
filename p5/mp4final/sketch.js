@@ -50,6 +50,39 @@ function draw() {
             break;
 
     }
+    map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
+  xPosition = map(gamma, -60, 60, 0, width);
+  yPosition = map(beta, -30, 30, 0, height);
+
+  push(); // before you use translate, rotate, or scale commands, push and then pop after
+
+  translate(xPosition, yPosition); // move everything over by x, y
+
+  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
+
+ // image(bunnyImage, 0, 0, 500, 500);
+
+    	ellipse(0, 0, 200, 200) ;
+  pop();
+
+  frogPos.x = xPosition;
+  frogPos.y = yPosition;
+
+    // Read in accelerometer data
+window.addEventListener('deviceorientation', function(e) {
+  alpha = e.alpha;
+  beta = e.beta;
+  gamma = e.gamma;
+});
+
+
+// accelerometer Data
+window.addEventListener('devicemotion', function(e) {
+  // get accelerometer values
+  x = e.acceleration.x;
+  y = e.acceleration.y;
+  z = e.acceleration.z;
+});
 }
 
 // car class!!
@@ -98,7 +131,12 @@ function Car() {
     };
 
 }
-
+function mouseReleased() {
+  myState++ ;
+  if (myState===0) {
+    myState = 1;
+  }
+}
 
 function checkForKeys() {
     if (keyIsDown(LEFT_ARROW)) frogPos.x = frogPos.x - 5;
