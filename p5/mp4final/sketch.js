@@ -133,7 +133,7 @@ function Car() {
 }
 function mouseReleased() {
   myState++ ;
-  if (myState=0) {
+  if (myState==0) {
     myState = 1;
   }
 }
